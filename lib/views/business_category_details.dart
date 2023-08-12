@@ -101,11 +101,7 @@ class _BusinessCategoryDetailPageState
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => NewsDetailPage(
-                                      postImage:
-                                          news![index].urlToImage.toString(),
-                                      postTitle: news![index].title.toString(),
-                                      postDetail:
-                                          news![index].content.toString(),
+                                    news: news![index],
                                     ),
                                   ),
                                 );

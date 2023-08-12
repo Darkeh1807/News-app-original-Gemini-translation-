@@ -19,8 +19,6 @@ class SportsCategoryDetailPage extends StatefulWidget {
 class _SportsCategoryDetailPageState extends State<SportsCategoryDetailPage> {
   List<News>? news;
   var isLoaded = false;
-  final GlobalKey<LiquidPullToRefreshState> _refreshIndicatorKey =
-      GlobalKey<LiquidPullToRefreshState>();
 
   @override
   void initState() {
@@ -111,11 +109,7 @@ class _SportsCategoryDetailPageState extends State<SportsCategoryDetailPage> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => NewsDetailPage(
-                                        postImage:
-                                            news![index].urlToImage.toString(),
-                                        postTitle:
-                                            news![index].title.toString(),
-                                        postDetail: news![index].content,
+                                        news: news![index],
                                       ),
                                     ),
                                   );

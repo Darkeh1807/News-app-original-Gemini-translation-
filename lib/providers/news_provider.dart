@@ -1,4 +1,3 @@
-
 import 'dart:collection';
 import 'package:flutter/cupertino.dart';
 import 'package:new_app/models/news.dart';

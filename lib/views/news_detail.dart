@@ -4,17 +4,12 @@ import 'package:new_app/models/news.dart';
 import 'package:new_app/providers/news_provider.dart';
 import 'package:new_app/views/book_mark.dart';
 import 'package:provider/provider.dart';
-import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
 class NewsDetailPage extends StatelessWidget {
-  final String postImage;
-  final String postTitle;
-  final String postDetail;
+  final News news;
   const NewsDetailPage({
     super.key,
-    required this.postImage,
-    required this.postTitle,
-    required this.postDetail,
+   required this.news
   });
 
   @override
@@ -27,14 +22,7 @@ class NewsDetailPage extends StatelessWidget {
             iconTheme: const IconThemeData(color: Colors.white),
             actions: [
               Consumer<NewsProvider>(builder: (context, data, child) {
-                News news = News(
-                  title: postTitle,
-                  description: "",
-                  urlToImage: postImage,
-                  url: "",
-                  publishedAt: DateTime.now(),
-                  content: postDetail,
-                );
+              
                 return IconButton(
                   onPressed: () {
                     data.addNews(news);
@@ -74,7 +62,7 @@ class NewsDetailPage extends StatelessWidget {
               background: Stack(
                 children: [
                   Image.network(
-                    postImage,
+                   news.urlToImage.toString(),
                     height: double.infinity,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -99,7 +87,7 @@ class NewsDetailPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    postTitle,
+                    news.title,
                     style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -110,7 +98,7 @@ class NewsDetailPage extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    postDetail,
+                    news.content,
                     style: const TextStyle(
                       fontSize: 16,
                       fontStyle: FontStyle.normal,
