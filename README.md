@@ -1,4 +1,4 @@
-# Flutter simple new app
+# Flutter simple news app
 
 ![Android Emulator - Pixel_5_5554 11_27_2023 10_31_24 AM](https://github.com/Darkeh1807/News-app-original/assets/84424280/64d75129-523e-42db-a5a4-286fb86fcff7)
 ![Android Emulator - Pixel_5_5554 11_27_2023 10_27_57 AM](https://github.com/Darkeh1807/News-app-original/assets/84424280/fdb07d85-9aa6-43e9-887b-990d550d1f74)
