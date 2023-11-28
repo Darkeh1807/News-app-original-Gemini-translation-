@@ -5,3 +5,4 @@
 ![Android Emulator - Pixel_5_5554 11_27_2023 10_29_33 AM](https://github.com/Darkeh1807/News-app-original/assets/84424280/c8d8a413-1181-4b6e-bdfb-41f8baa682ae)
 ![Android Emulator - Pixel_5_5554 11_27_2023 10_30_58 AM](https://github.com/Darkeh1807/News-app-original/assets/84424280/8a5c16b3-874c-4aff-b200-23212eb9dbfd)
 ![Android Emulator - Pixel_5_5554 11_27_2023 10_58_11 AM](https://github.com/Darkeh1807/News-app-original/assets/84424280/bb4d7f38-70ec-424b-bda3-17dc4b7f3288)
+![Android Emulator - Pixel_5_5554 11_27_2023 10_27_57 AM](https://github.com/Darkeh1807/News-app-original/assets/84424280/4adf1f86-a086-4b63-87db-91ed0e849fc5)
