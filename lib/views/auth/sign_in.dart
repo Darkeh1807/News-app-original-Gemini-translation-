@@ -67,7 +67,7 @@ class SignIn extends StatelessWidget {
                         context.push('/main');
                       },
                       child: const CustomButton(
-                        title: "Sign up",
+                        title: "Sign in",
                       ),
                     ),
                     const SizedBox(

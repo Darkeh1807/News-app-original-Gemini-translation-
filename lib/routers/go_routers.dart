@@ -1,13 +1,13 @@
 import 'package:go_router/go_router.dart';
-import 'package:new_app/views/business_category_details.dart';
-import 'package:new_app/views/education_category_details.dart';
-import 'package:new_app/views/entertainment_category_details.dart';
+import 'package:new_app/views/category_details/business_category_details.dart';
+import 'package:new_app/views/category_details/education_category_details.dart';
+import 'package:new_app/views/category_details/entertainment_category_details.dart';
 import 'package:new_app/views/main_page.dart';
 import 'package:new_app/views/onboarding_page.dart';
-import 'package:new_app/views/sign_in.dart';
-import 'package:new_app/views/sign_up.dart';
-import 'package:new_app/views/sports_category_details.dart';
-import 'package:new_app/views/tech_category_details.dart';
+import 'package:new_app/views/auth/sign_in.dart';
+import 'package:new_app/views/auth/sign_up.dart';
+import 'package:new_app/views/category_details/sports_category_details.dart';
+import 'package:new_app/views/category_details/tech_category_details.dart';
 
 final router = GoRouter(
   routes: [

@@ -3,32 +3,32 @@ import 'package:new_app/constants/colors.dart';
 import 'package:intl/intl.dart';
 import 'package:new_app/models/news.dart';
 import 'package:new_app/services/http_services.dart';
-import 'package:new_app/views/news_detail.dart';
+import 'package:new_app/views/category_details/news_detail.dart';
 import 'package:new_app/widgets/news_card.dart';
 import 'package:new_app/widgets/wait_loader.dart';
 
-class EducationCategoryDetailPage extends StatefulWidget {
-  const EducationCategoryDetailPage({super.key});
+class EntertainmentCategoryDetailPage extends StatefulWidget {
+  const EntertainmentCategoryDetailPage({super.key});
 
   @override
-  State<EducationCategoryDetailPage> createState() =>
-      _EducationCategoryDetailPageState();
+  State<EntertainmentCategoryDetailPage> createState() =>
+      _EntertainmentCategoryDetailPageState();
 }
 
-class _EducationCategoryDetailPageState
-    extends State<EducationCategoryDetailPage> {
+class _EntertainmentCategoryDetailPageState
+    extends State<EntertainmentCategoryDetailPage> {
   List<News>? news;
   var isLoaded = false;
 
   @override
   void initState() {
     super.initState();
-    getEducationNews();
+    getEntertainmentNews();
   }
 
-  getEducationNews() async {
+  getEntertainmentNews() async {
     if (news == null) {
-      final fetchedNews = await HttpHelper().getNews("Education");
+      final fetchedNews = await HttpHelper().getNews("Entertainment");
       setState(() {
         news = fetchedNews;
         isLoaded = true;
@@ -71,7 +71,7 @@ class _EducationCategoryDetailPageState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Education",
+                "Entertainment",
                 style: TextStyle(
                   fontSize: 35,
                   fontWeight: FontWeight.bold,
@@ -85,8 +85,6 @@ class _EducationCategoryDetailPageState
                 height: MediaQuery.of(context).size.height,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 40),
-
-                  
                   child: Visibility(
                     visible: isLoaded,
                     replacement: const Center(
@@ -103,7 +101,7 @@ class _EducationCategoryDetailPageState
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => NewsDetailPage(
-                                     news: news![index],
+                                      news: news![index],
                                     ),
                                   ),
                                 );

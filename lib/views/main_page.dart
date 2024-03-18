@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:new_app/constants/colors.dart';
 import 'package:new_app/providers/news_provider.dart';
 import 'package:new_app/views/book_mark.dart';
-import 'package:new_app/views/business_category_details.dart';
+import 'package:new_app/views/category_details/business_category_details.dart';
 import 'package:new_app/widgets/category_card.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';

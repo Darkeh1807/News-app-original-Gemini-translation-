@@ -43,6 +43,7 @@ dependencies:
   workmanager: ^0.5.1
   liquid_pull_to_refresh: ^3.0.1
   flutter_screenutil: ^5.9.0
+  google_generative_ai: ^0.0.1-dev
 
 dev_dependencies:
   flutter_test:

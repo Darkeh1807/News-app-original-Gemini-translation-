@@ -23,12 +23,12 @@ class NewsCard extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 150,
+          top: 140,
           left: 18,
           child: Card(
             color: Colors.white,
             child: SizedBox(
-              height: 90,
+              height: 95,
               width: 305,
               child: Center(
                 child: Padding(

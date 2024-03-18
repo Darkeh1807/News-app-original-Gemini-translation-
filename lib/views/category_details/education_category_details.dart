@@ -3,32 +3,32 @@ import 'package:new_app/constants/colors.dart';
 import 'package:intl/intl.dart';
 import 'package:new_app/models/news.dart';
 import 'package:new_app/services/http_services.dart';
-import 'package:new_app/views/news_detail.dart';
+import 'package:new_app/views/category_details/news_detail.dart';
 import 'package:new_app/widgets/news_card.dart';
 import 'package:new_app/widgets/wait_loader.dart';
 
-class TechnologyCategoryDetailPage extends StatefulWidget {
-  const TechnologyCategoryDetailPage({super.key});
+class EducationCategoryDetailPage extends StatefulWidget {
+  const EducationCategoryDetailPage({super.key});
 
   @override
-  State<TechnologyCategoryDetailPage> createState() =>
-      _TechnologyCategoryDetailPageState();
+  State<EducationCategoryDetailPage> createState() =>
+      _EducationCategoryDetailPageState();
 }
 
-class _TechnologyCategoryDetailPageState
-    extends State<TechnologyCategoryDetailPage> {
+class _EducationCategoryDetailPageState
+    extends State<EducationCategoryDetailPage> {
   List<News>? news;
   var isLoaded = false;
 
   @override
   void initState() {
     super.initState();
-    getTechnologyNews();
+    getEducationNews();
   }
 
-  getTechnologyNews() async {
+  getEducationNews() async {
     if (news == null) {
-      final fetchedNews = await HttpHelper().getNews("tech");
+      final fetchedNews = await HttpHelper().getNews("Education");
       setState(() {
         news = fetchedNews;
         isLoaded = true;
@@ -71,7 +71,7 @@ class _TechnologyCategoryDetailPageState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Technology",
+                "Education",
                 style: TextStyle(
                   fontSize: 35,
                   fontWeight: FontWeight.bold,
@@ -85,6 +85,8 @@ class _TechnologyCategoryDetailPageState
                 height: MediaQuery.of(context).size.height,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 40),
+
+                  
                   child: Visibility(
                     visible: isLoaded,
                     replacement: const Center(
@@ -101,7 +103,7 @@ class _TechnologyCategoryDetailPageState
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => NewsDetailPage(
-                                    news: news![index],
+                                     news: news![index],
                                     ),
                                   ),
                                 );

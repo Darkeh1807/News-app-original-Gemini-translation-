@@ -3,32 +3,32 @@ import 'package:new_app/constants/colors.dart';
 import 'package:intl/intl.dart';
 import 'package:new_app/models/news.dart';
 import 'package:new_app/services/http_services.dart';
-import 'package:new_app/views/news_detail.dart';
+import 'package:new_app/views/category_details/news_detail.dart';
 import 'package:new_app/widgets/news_card.dart';
 import 'package:new_app/widgets/wait_loader.dart';
 
-class BusinessCategoryDetailPage extends StatefulWidget {
-  const BusinessCategoryDetailPage({super.key});
+class TechnologyCategoryDetailPage extends StatefulWidget {
+  const TechnologyCategoryDetailPage({super.key});
 
   @override
-  State<BusinessCategoryDetailPage> createState() =>
-      _BusinessCategoryDetailPageState();
+  State<TechnologyCategoryDetailPage> createState() =>
+      _TechnologyCategoryDetailPageState();
 }
 
-class _BusinessCategoryDetailPageState
-    extends State<BusinessCategoryDetailPage> {
+class _TechnologyCategoryDetailPageState
+    extends State<TechnologyCategoryDetailPage> {
   List<News>? news;
   var isLoaded = false;
 
   @override
   void initState() {
     super.initState();
-    getBusinessNews();
+    getTechnologyNews();
   }
 
-  getBusinessNews() async {
+  getTechnologyNews() async {
     if (news == null) {
-      final fetchedNews = await HttpHelper().getNews("job");
+      final fetchedNews = await HttpHelper().getNews("tech");
       setState(() {
         news = fetchedNews;
         isLoaded = true;
@@ -71,7 +71,7 @@ class _BusinessCategoryDetailPageState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Business",
+                "Technology",
                 style: TextStyle(
                   fontSize: 35,
                   fontWeight: FontWeight.bold,

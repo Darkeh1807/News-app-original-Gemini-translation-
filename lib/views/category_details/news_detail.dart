@@ -7,10 +7,7 @@ import 'package:provider/provider.dart';
 
 class NewsDetailPage extends StatelessWidget {
   final News news;
-  const NewsDetailPage({
-    super.key,
-   required this.news
-  });
+  const NewsDetailPage({super.key, required this.news});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +19,6 @@ class NewsDetailPage extends StatelessWidget {
             iconTheme: const IconThemeData(color: Colors.white),
             actions: [
               Consumer<NewsProvider>(builder: (context, data, child) {
-              
                 return IconButton(
                   onPressed: () {
                     data.addNews(news);
@@ -39,21 +35,9 @@ class NewsDetailPage extends StatelessWidget {
                 width: 20,
               ),
               InkWell(
-                  onTap: () {
-                    PopupMenuButton(
-                        itemBuilder: (BuildContext context) => [
-                              const PopupMenuItem(
-                                child: Text("Settings"),
-                              ),
-                              const PopupMenuItem(
-                                child: Text("Settings"),
-                              ),
-                              const PopupMenuItem(
-                                child: Text("Settings"),
-                              )
-                            ]);
-                  },
-                  child: const Icon(Icons.more_horiz)),
+                onTap: () {},
+                child: const Icon(Icons.more_horiz),
+              ),
               const SizedBox(
                 width: 25,
               )
@@ -62,7 +46,7 @@ class NewsDetailPage extends StatelessWidget {
               background: Stack(
                 children: [
                   Image.network(
-                   news.urlToImage.toString(),
+                    news.urlToImage.toString(),
                     height: double.infinity,
                     width: double.infinity,
                     fit: BoxFit.cover,

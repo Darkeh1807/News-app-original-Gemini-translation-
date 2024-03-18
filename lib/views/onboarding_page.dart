@@ -35,7 +35,7 @@ class OnboardingPage extends StatelessWidget {
             const Text(
               'Read the latest  news on the go',
               style: TextStyle(
-                fontSize: 25,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
