@@ -37,13 +37,14 @@ dependencies:
   flutter_animate: ^4.1.1+1
   google_fonts: ^4.0.4
   intl: ^0.18.1
-  http: ^0.13.6
+  http: ^1.2.1
   provider: ^6.0.5
   go_router: ^7.1.1
   workmanager: ^0.5.1
   liquid_pull_to_refresh: ^3.0.1
   flutter_screenutil: ^5.9.0
-  google_generative_ai: ^0.0.1-dev
+  google_generative_ai: ^0.2.2
+  logger: ^2.1.0
 
 dev_dependencies:
   flutter_test:

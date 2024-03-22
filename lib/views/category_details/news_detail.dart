@@ -1,14 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:new_app/models/news.dart';
 import 'package:new_app/providers/news_provider.dart';
+import 'package:new_app/services/translate_services.dart';
 import 'package:new_app/views/book_mark.dart';
 import 'package:provider/provider.dart';
 
-class NewsDetailPage extends StatelessWidget {
+class NewsDetailPage extends StatefulWidget {
   final News news;
   const NewsDetailPage({super.key, required this.news});
 
+  @override
+  State<NewsDetailPage> createState() => _NewsDetailPageState();
+}
+
+class _NewsDetailPageState extends State<NewsDetailPage> {
+  bool isLoading = false;
+  String? frenchText = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +30,7 @@ class NewsDetailPage extends StatelessWidget {
               Consumer<NewsProvider>(builder: (context, data, child) {
                 return IconButton(
                   onPressed: () {
-                    data.addNews(news);
+                    data.addNews(widget.news);
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text("Post succesfully added to Bookmark"),
@@ -35,8 +44,24 @@ class NewsDetailPage extends StatelessWidget {
                 width: 20,
               ),
               InkWell(
-                onTap: () {},
-                child: const Icon(Icons.more_horiz),
+                onTap: () async {
+                  setState(() {
+                    isLoading = true;
+                  });
+                  try {
+                    final tc = await translateContent(
+                        text: widget.news.content, language: "French");
+                    if (tc.text != null && tc.text != "") {
+                      setState(() {
+                        isLoading = false;
+                        frenchText = tc.text;
+                      });
+                    }
+                  } catch (e) {
+                    rethrow;
+                  }
+                },
+                child: const Icon(Icons.translate_outlined),
               ),
               const SizedBox(
                 width: 25,
@@ -46,7 +71,7 @@ class NewsDetailPage extends StatelessWidget {
               background: Stack(
                 children: [
                   Image.network(
-                    news.urlToImage.toString(),
+                    widget.news.urlToImage.toString(),
                     height: double.infinity,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -67,11 +92,11 @@ class NewsDetailPage extends StatelessWidget {
                 top: 15,
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    news.title,
+                    widget.news.title,
                     style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -82,12 +107,48 @@ class NewsDetailPage extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    news.content,
+                    widget.news.content,
                     style: const TextStyle(
                       fontSize: 16,
                       fontStyle: FontStyle.normal,
                     ),
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text("French translation",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.normal,
+                          )),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      isLoading
+                          ? const Align(
+                              child: Column(
+                                children: [
+                                  CircularProgressIndicator(),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text("Translating to French")
+                                ],
+                              ),
+                            )
+                          : Text(
+                              frenchText.toString(),
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontStyle: FontStyle.normal,
+                              ),
+                            ),
+                    ],
+                  )
                 ],
               ),
             ),
