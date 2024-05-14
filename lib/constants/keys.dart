@@ -1,1 +1,1 @@
- const apiKey = 'c0dd0cfd4aef4f268e422c99d2b912e4';
+ const apiKey = 'APIKEY';
