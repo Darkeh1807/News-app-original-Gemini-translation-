@@ -1,6 +1,6 @@
 import 'package:google_generative_ai/google_generative_ai.dart';
 
-const String key = "AIzaSyAmS1_HDiHURb4z4DtrxGrEsCjz6UkJ7E8";
+const String key = "";
 final model = GenerativeModel(
   model: 'gemini-pro',
   apiKey: key,
